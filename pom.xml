@@ -32,7 +32,8 @@
 	</dependencies>
 	
 	<build>
-		<finalName>hello</finalName>
+     <!-- 产生的构件的文件名，默认值是${artifactId}-${version}。 --> 
+     <finalName>${artifactId}-${version}</finalName>
 		 <defaultGoal>compile</defaultGoal>
 		 
 		 <plugins>  

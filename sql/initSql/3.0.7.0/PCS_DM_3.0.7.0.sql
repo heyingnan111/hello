@@ -1,0 +1,21 @@
+-- 创建用户
+create user PCS identified by PCSPCSPCS;
+
+-- 创建表空间
+create tablespace PCS
+datafile 'C:\dmdbms\data\DAMENG\PCS.DBF'  size 128;
+
+-- 修改表空间为自增
+ALTER TABLESPACE PCS DATAFILE 'C:\dmdbms\data\DAMENG\PCS.DBF' AUTOEXTEND ON NEXT 50 MAXSIZE
+30000;
+
+-- 设置用户使用指定的表空间
+alter user PCS default tablespace PCS;
+
+-- 给用户授权
+grant dba,resource to PCS;
+
+-- 设置序列
+CREATE SEQUENCE "PCS"."PCS_SEQUENCE" INCREMENT BY 1 START WITH 1 MAXVALUE 9999999999999999999999999999 MINVALUE 1;
+
+CREATE SEQUENCE "PCS"."HIBERNATE_SEQUENCE" INCREMENT BY 1 START WITH 1 MAXVALUE 9999999999999999999999999999 MINVALUE 1;
